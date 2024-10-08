@@ -113,7 +113,7 @@
         const metadataStatus = await contractMetadataInput.submissionStatus;
 
         if(metadataStatus.status != 'accepted') {
-          console.log('Failed to upload metadata file', err);
+          console.log('Failed to upload metadata file',metadataStatus);
           if(this.callbacks.onUploadFailed !== undefined)
             this.callbacks.onUploadFailed();
           return;
