@@ -1,0 +1,361 @@
+ <!-- dapp html: -->
+ <div class="bg-dark text-light vh-100">
+  <div class="container pt-4">
+
+    <div class="text-center">
+      <h2 class="text-center">Share <span class="fw-bold">Files & Documents</span></h2>
+      <p>Share files via <span class="fw-bold">decentralized</span> Evernode Network</p>
+    </div>
+
+    <div class="card border-0 p-4 m-auto" style="max-width:700px">
+      <!-- Download file UI -->
+      <div class="py-4 d-none" id="file_download">
+
+        <h4 class="text-center fw-semibold mb-5">Someone shared file with you...</h4>
+        <div class="mb-3 shadow-sm rounded border bg-light p-2 d-flex">
+          <div>
+            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.3517 7.61665L15.3929 4.05375C14.2651 3.03868 13.7012 2.53114 13.0092 2.26562L13 5.00011C13 7.35713 13 8.53564 13.7322 9.26787C14.4645 10.0001 15.643 10.0001 18 10.0001H21.5801C21.2175 9.29588 20.5684 8.71164 19.3517 7.61665Z" fill="#1C274C"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V10C2 6.22876 2 4.34315 3.17157 3.17157C4.34315 2 6.23869 2 10.0298 2C10.6358 2 11.1214 2 11.53 2.01666C11.5166 2.09659 11.5095 2.17813 11.5092 2.26057L11.5 5.09497C11.4999 6.19207 11.4998 7.16164 11.6049 7.94316C11.7188 8.79028 11.9803 9.63726 12.6716 10.3285C13.3628 11.0198 14.2098 11.2813 15.0569 11.3952C15.8385 11.5003 16.808 11.5002 17.9051 11.5001L18 11.5001H21.9574C22 12.0344 22 12.6901 22 13.5629V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22ZM17 16C17.5523 16 18 15.3284 18 14.5C18 13.6716 17.5523 13 17 13C16.4477 13 16 13.6716 16 14.5C16 15.3284 16.4477 16 17 16ZM8.37604 17.0841C8.60581 16.7394 9.07146 16.6463 9.4161 16.876C10.9808 17.9192 13.0193 17.9192 14.5841 16.876C14.9287 16.6463 15.3944 16.7394 15.6241 17.0841C15.8539 17.4287 15.7608 17.8944 15.4161 18.1241C13.3475 19.5032 10.6526 19.5032 8.58405 18.1241C8.23941 17.8944 8.14628 17.4287 8.37604 17.0841ZM7 16C7.55228 16 8 15.3284 8 14.5C8 13.6716 7.55228 13 7 13C6.44772 13 6 13.6716 6 14.5C6 15.3284 6.44772 16 7 16Z" fill="#1C274C"/>
+            </svg>
+          </div>
+          <div class="flex-fill ps-3">
+            <div id="file_download_name">Loading file metadata...</div>
+            <div id="file_download_descr" class="small opacity-50">
+              <div class="spinner-border spinner-border-sm" role="status"></div>
+              Please wait...
+            </div>
+          </div>
+        </div>
+
+        <div id="file_download_note_wrap"></div>
+
+        <div class="mb-3 border rounded shadow-sm p-2 d-none" id="file_download_password_wrap">
+          <div class="mb-2 text-danger small d-flex align-items-center">
+            <div class="me-1">
+              <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14.5V16.5M7 10.0288C7.47142 10 8.05259 10 8.8 10H15.2C15.9474 10 16.5286 10 17 10.0288M7 10.0288C6.41168 10.0647 5.99429 10.1455 5.63803 10.327C5.07354 10.6146 4.6146 11.0735 4.32698 11.638C4 12.2798 4 13.1198 4 14.8V16.2C4 17.8802 4 18.7202 4.32698 19.362C4.6146 19.9265 5.07354 20.3854 5.63803 20.673C6.27976 21 7.11984 21 8.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V14.8C20 13.1198 20 12.2798 19.673 11.638C19.3854 11.0735 18.9265 10.6146 18.362 10.327C18.0057 10.1455 17.5883 10.0647 17 10.0288M7 10.0288V8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V10.0288" stroke="#dc3545" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>Password protected file</div>
+          </div>
+          <input type="password" name="file_download_password" value="" class="form-control" placeholder="Please enter password to download" required />
+        </div>
+        <button class="btn btn-primary w-100 disabled" id="file_download_button">Download file</button>
+        <div id="file_download_msg" class="small"></div>
+      </div>
+
+      <!-- Upload file UI -->
+      <div class="py-4 text-center d-none" id="file_selector">
+        <a href="#" class="btn btn-primary fw-semibold" onclick="$('input[name=file]').click();return false;">
+          <svg width="26px" height="26px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Send File</a>
+      </div>
+
+      <div class="py-4 d-none" id="file_details">
+        <div class="mb-3 shadow-sm rounded border bg-light p-2 d-flex">
+          <div>
+            <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.3517 7.61665L15.3929 4.05375C14.2651 3.03868 13.7012 2.53114 13.0092 2.26562L13 5.00011C13 7.35713 13 8.53564 13.7322 9.26787C14.4645 10.0001 15.643 10.0001 18 10.0001H21.5801C21.2175 9.29588 20.5684 8.71164 19.3517 7.61665Z" fill="#1C274C"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V10C2 6.22876 2 4.34315 3.17157 3.17157C4.34315 2 6.23869 2 10.0298 2C10.6358 2 11.1214 2 11.53 2.01666C11.5166 2.09659 11.5095 2.17813 11.5092 2.26057L11.5 5.09497C11.4999 6.19207 11.4998 7.16164 11.6049 7.94316C11.7188 8.79028 11.9803 9.63726 12.6716 10.3285C13.3628 11.0198 14.2098 11.2813 15.0569 11.3952C15.8385 11.5003 16.808 11.5002 17.9051 11.5001L18 11.5001H21.9574C22 12.0344 22 12.6901 22 13.5629V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22ZM17 16C17.5523 16 18 15.3284 18 14.5C18 13.6716 17.5523 13 17 13C16.4477 13 16 13.6716 16 14.5C16 15.3284 16.4477 16 17 16ZM8.37604 17.0841C8.60581 16.7394 9.07146 16.6463 9.4161 16.876C10.9808 17.9192 13.0193 17.9192 14.5841 16.876C14.9287 16.6463 15.3944 16.7394 15.6241 17.0841C15.8539 17.4287 15.7608 17.8944 15.4161 18.1241C13.3475 19.5032 10.6526 19.5032 8.58405 18.1241C8.23941 17.8944 8.14628 17.4287 8.37604 17.0841ZM7 16C7.55228 16 8 15.3284 8 14.5C8 13.6716 7.55228 13 7 13C6.44772 13 6 13.6716 6 14.5C6 15.3284 6.44772 16 7 16Z" fill="#1C274C"/>
+            </svg>
+          </div>
+          <div class="flex-fill ps-3">
+            <div id="file_details_name">No file selected...</div>
+            <div class="small opacity-50">Ready to upload</div>
+          </div>
+        </div>
+        <div class="fw-bold mb-3">Upload options</div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="protection_password_switch">
+          <label class="form-check-label" for="protection_password_switch">Require password</label>
+        </div>
+        <div class="mt-3 d-none" id="protection_password_wrap">
+          <input type="text" class="form-control" id="protection_password" name="protection_password" value="" placeholder="Password" />
+          <div class="small opacity-50">Enter password as requirement to download this file.</div>
+        </div>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="note_switch">
+          <label class="form-check-label" for="note_switch">Add note</label>
+        </div>
+        <div class="mt-3 d-none" id="note_wrap">
+          <input type="text" class="form-control" id="note" name="note" value="" placeholder="Add public note" />
+          <div class="small opacity-50">This note will be shown on download page</div>
+        </div>
+
+        <!-- upload button -->
+        <div class="mt-3">
+          <button class="btn btn-success w-100" onclick="uploadFile();return false">Upload file</button>
+        </div>
+        
+      </div>
+
+      <div class="pt-4 d-none" id="file_progress">
+        <div id="file_progress_name">No file selected...</div>
+        <div id="file_progress_dots" class="dots d-flex justify-content-between rounded overflow-hidden"></div>
+        <div id="file_progress_progress_txt" class="small">Preparing file...</div>
+         
+        <div id="file_progress_success" class="text-center d-none">
+          <div class="mb-1 fw-semibold">File Download link</div>
+          
+          <div id="file_progress_success_sharelink" style="border-style: dashed !important;" class="border rounded bg-light p-2 text-muted user-select-all"></div>
+          <div class="small opacity-50">Share this file with someone - send them this link</div>
+          <div class="small opacity-50 mt-4">
+            <span class="small">
+            This file now lives on Evernode decentralized instance(s), if instance expires, this file will be lost.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="small opacity-75 text-center mt-2 d-flex justify-content-between mx-auto" style="max-width:700px">
+      <span><a href="https://github.com/XRPLWin/evernode-filesharing-contract" class="text-light small opacity-50" target="_blank">Source code</a></span>
+      <span class="small">This is Evernode Smart Contract DApp</span>
+      <span><a href="" class="text-light small">Upload new</a></span>
+    </div>
+    <form enctype="multipart/form-data">
+      <input class="d-none" type="file" name="file" required />
+    </form>
+  </div>
+
+</div>
+
+<!-- developer note (you can remove this): -->
+<div class="bg-warning p-4">
+  <div class="fw-bold mb-3">Hey, you, you're finally awake</div>
+  <div>
+    This DApp runs on <a href="https://www.evernode.org/" target="_blank" class="text-dark">Evernode</a> Instance. Static HTML Loader is used load DApp Contract HTML contents to the web browser and additionally to mask instance URL.<br>
+    Whole DApp logic is loaded via the Contract. Uploaded files are chunked to smaller pieces in web browser and transmitted to the Evernode contract.<br>
+    File protection checks are done inside Contract. Depending of cluster configuration uploaded file may be redundantly distributed across multiple Evernode Instances.
+    <br><br>
+    Author: <a href="https://xahau.xrplwin.com" target="_blank" class="text-dark">XRPLWin</a><br>
+    Source: <a href="https://github.com/XRPLWin/evernode-filesharing-contract" target="_blank" class="text-dark">GitHub</a><br><br>
+    <a href="https://xahau.xrplwin.com/code/evernode/github/XRPLWin/evernode-filesharing-contract" target="_blank" class="btn btn-dark">Open in XWCode</a>
+  </div>
+</div>
+<!-- :developer note (you can remove this) -->
+
+<style>
+  .dots{
+    min-height: 1em;
+    background-color: gainsboro;
+  }
+  .dots i{
+    height: 1em;
+    min-width: 1px;
+    flex: 1 1 auto !important;
+  
+    -webkit-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+  }
+  .dots i.d{
+    background-color: green;
+  }
+  .dots i.e{
+    background-color: red;
+  }
+</style>
+
+<script>
+  //UI events JS logic:
+  function clientReady() {
+
+    let lochash = window.location.hash;
+    if(lochash == "") {
+      $("#file_selector").removeClass('d-none')
+      $("input[name=file]").change(function(e) {
+        //File input changed
+        let file = $(e.target)[0].files[0];
+        $("#file_selector").addClass('d-none');
+        $("#file_details_name").text(file.name+ ' ('+humanFileSize(file.size)+')');
+        $("#file_details").removeClass('d-none');
+      });
+
+      $("#protection_password_switch").change(function(e){
+        let isChecked = $(this).is(':checked');
+        if(isChecked) {
+          $("#protection_password_wrap").removeClass('d-none')
+        } else {
+          $("#protection_password_wrap").addClass('d-none')
+        }
+      });
+
+      $("#note_switch").change(function(e){
+        let isChecked = $(this).is(':checked');
+        if(isChecked) {
+          $("#note_wrap").removeClass('d-none')
+        } else {
+          $("#note_wrap").addClass('d-none')
+        }
+      });
+      
+    } else {
+
+      //Download file requested
+      lochash = lochash.substring(1);
+      let dl_data = lochash.split("-");
+      if(dl_data.length != 2) {
+        alert('Invalid download link');
+        return;
+      }
+
+      $("#file_download").removeClass('d-none');
+
+      loadfileMetadata(dl_data[0], dl_data[1]).then(metadata => {
+        if(metadata === null) {
+          $("#file_download_name").text('404 - File not found');
+          $("#file_download_descr").text('Unable to load file metadata. File may not exist or request timed out');
+          return;
+        }
+
+        $("#file_download_name").text(metadata.filename);
+        $("#file_download_descr").html(humanFileSize(metadata.size) + ' &middot; Ready to download');
+        if(metadata.access == 'password') {
+          $("#file_download_password_wrap").removeClass('d-none');
+        }
+        if(metadata.note) {
+          $("#file_download_note_wrap").addClass('mb-3').html('<div class="border rounded shadow-sm p-2"><div class="small opacity-50">Note from uploader:</div>'+metadata.note+'</div>')
+        }
+        $("#file_download_button")
+          .data('pubkey',dl_data[0])
+          .data('fileid',dl_data[1])
+          .data('totalchunks',metadata.totalchunks)
+          .data('size',metadata.size)
+          .data('filename',metadata.filename)
+          .data('access',metadata.access)
+          .on('click',function(e) {
+            $("#file_download_msg").text(''); //reset
+
+            const downloader = new XRPLWin_ChunkedFileDownloader(
+              app.getClient(),
+              $(this).data('pubkey'),
+              $(this).data('fileid'),
+              $(this).data('totalchunks'),
+              $(this).data('size'),
+              {
+                onChunkDownloaded:function(chunkno,totalchunks) {
+                  $("#file_download_button").text('Downloading '+chunkno+'/'+totalchunks)
+                }
+              }
+            );
+            $("#file_download_button").addClass('disabled');
+            let request_options = {};
+            if($(this).data('access') == 'password') {
+              request_options.password = $("input[name=file_download_password]").val();
+            }
+            downloader.download($(this).data('filename'),request_options).catch(e => {
+              console.error(e);
+              $("#file_download_msg").text('Response from contract: '+e);
+              //Probably invalid password, unlock to allow user to try again
+              $("#file_download_button").removeClass('disabled');
+            });
+            
+            
+
+          }).removeClass('disabled')
+      }).catch(e => {
+        console.log(e);
+      });
+    }
+  };
+
+  
+  function uploadFile() {
+    var el = $("input[name=file]");
+    var file = el[0].files[0];
+
+    if(file.size > 1000000000) {
+      alert('Upper allowed limit is 1GB per file, try smaller file');
+      return;
+    }
+
+    $("#file_progress_name").text(file.name+ ' ('+humanFileSize(file.size)+')');
+    $("#file_details").addClass('d-none');
+    $("#file_progress").removeClass('d-none');
+    var fileid = Math.floor(Date.now());
+    var password = $("#protection_password").val();
+    var note = $("#note").val();
+    var metadata = {
+      'filename' : file.name,
+      'size' : file.size,
+      'type': file.type,
+      'lastmodified' : file.lastModified,
+      'access' : (password === '' ? '':'password'), //other types of authentication may be implemented here
+      'note' : note,
+      //Protected non-exposed properties (everything starting with "_" will not leave contract):
+      '_access_password': (password === '' ? null:md5(password)), //hash password client-side right away
+    };
+    const uploader = new XRPLWin_ChunkedFileUpload(app.getClient(),file,fileid,metadata,{
+      onChunkUploading:function(chunkno) {
+        $("#file_progress_progress_txt").text('Chunk '+chunkno+' upload started...')
+        console.log("Chunk "+ chunkno + " upload started...")
+        $("#file_progress_dots").append('<i id="c'+chunkno+'"></i>');
+      },
+      onChunkUploaded:function(chunkno) {
+        $("#file_progress_progress_txt").text('Chunk '+chunkno+' uploaded');
+        $("#file_progress_dots #c"+chunkno).addClass('d');
+        console.log("Chunk "+ chunkno + " sucessfully uploaded");
+      },
+      onChunkFailed:function(chunkno) {
+        $("#file_progress_dots #c"+chunkno).addClass('e');
+        console.log("Chunk "+ chunkno + " failed");
+      },
+      onUploadFailed:function() {
+        $("#file_progress_progress_txt").html('<span class="text-danger">Upload failed</span>')
+      },
+      onFileUploaded:function() {
+        console.log('Upload succeeded');
+        $("#file_progress_progress_txt").html('<span class="text-success">Upload succeeded</span>');
+
+        loadfileMetadata(app.getUserPublicKey(), fileid).then(metadata => {
+          console.log(metadata)
+          $("#file_progress_success").removeClass('d-none');
+          $("#file_progress_success_sharelink").text(window.location.origin + window.location.pathname + '#' +app.getUserPublicKey() + '-' + fileid);
+        });
+      }
+    });
+    uploader.upload();
+  }
+
+  async function loadfileMetadata(uploaderpubkey, fileid) {
+    const response = await app.getClient().submitContractReadRequest(BSON.serialize({
+        type: "download-metadata",
+        uploaderpubkey: uploaderpubkey,
+        fileid: fileid
+    }), null, 7000); //7s timeout
+    if(response === null)
+      return null;
+    const rawResponse = BSON.deserialize(response);
+    return JSON.parse(rawResponse.data);
+  }
+
+  var md5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};function M(d){for(var _,m="0123456789ABCDEF",f="",r=0;r<d.length;r++)_=d.charCodeAt(r),f+=m.charAt(_>>>4&15)+m.charAt(15&_);return f}function X(d){for(var _=Array(d.length>>2),m=0;m<_.length;m++)_[m]=0;for(m=0;m<8*d.length;m+=8)_[m>>5]|=(255&d.charCodeAt(m/8))<<m%32;return _}function V(d){for(var _="",m=0;m<32*d.length;m+=8)_+=String.fromCharCode(d[m>>5]>>>m%32&255);return _}function Y(d,_){d[_>>5]|=128<<_%32,d[14+(_+64>>>9<<4)]=_;for(var m=1732584193,f=-271733879,r=-1732584194,i=271733878,n=0;n<d.length;n+=16){var h=m,t=f,g=r,e=i;f=md5_ii(f=md5_ii(f=md5_ii(f=md5_ii(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_hh(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_gg(f=md5_ff(f=md5_ff(f=md5_ff(f=md5_ff(f,r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+0],7,-680876936),f,r,d[n+1],12,-389564586),m,f,d[n+2],17,606105819),i,m,d[n+3],22,-1044525330),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+4],7,-176418897),f,r,d[n+5],12,1200080426),m,f,d[n+6],17,-1473231341),i,m,d[n+7],22,-45705983),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+8],7,1770035416),f,r,d[n+9],12,-1958414417),m,f,d[n+10],17,-42063),i,m,d[n+11],22,-1990404162),r=md5_ff(r,i=md5_ff(i,m=md5_ff(m,f,r,i,d[n+12],7,1804603682),f,r,d[n+13],12,-40341101),m,f,d[n+14],17,-1502002290),i,m,d[n+15],22,1236535329),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+1],5,-165796510),f,r,d[n+6],9,-1069501632),m,f,d[n+11],14,643717713),i,m,d[n+0],20,-373897302),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+5],5,-701558691),f,r,d[n+10],9,38016083),m,f,d[n+15],14,-660478335),i,m,d[n+4],20,-405537848),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+9],5,568446438),f,r,d[n+14],9,-1019803690),m,f,d[n+3],14,-187363961),i,m,d[n+8],20,1163531501),r=md5_gg(r,i=md5_gg(i,m=md5_gg(m,f,r,i,d[n+13],5,-1444681467),f,r,d[n+2],9,-51403784),m,f,d[n+7],14,1735328473),i,m,d[n+12],20,-1926607734),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+5],4,-378558),f,r,d[n+8],11,-2022574463),m,f,d[n+11],16,1839030562),i,m,d[n+14],23,-35309556),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+1],4,-1530992060),f,r,d[n+4],11,1272893353),m,f,d[n+7],16,-155497632),i,m,d[n+10],23,-1094730640),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+13],4,681279174),f,r,d[n+0],11,-358537222),m,f,d[n+3],16,-722521979),i,m,d[n+6],23,76029189),r=md5_hh(r,i=md5_hh(i,m=md5_hh(m,f,r,i,d[n+9],4,-640364487),f,r,d[n+12],11,-421815835),m,f,d[n+15],16,530742520),i,m,d[n+2],23,-995338651),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+0],6,-198630844),f,r,d[n+7],10,1126891415),m,f,d[n+14],15,-1416354905),i,m,d[n+5],21,-57434055),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+12],6,1700485571),f,r,d[n+3],10,-1894986606),m,f,d[n+10],15,-1051523),i,m,d[n+1],21,-2054922799),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+8],6,1873313359),f,r,d[n+15],10,-30611744),m,f,d[n+6],15,-1560198380),i,m,d[n+13],21,1309151649),r=md5_ii(r,i=md5_ii(i,m=md5_ii(m,f,r,i,d[n+4],6,-145523070),f,r,d[n+11],10,-1120210379),m,f,d[n+2],15,718787259),i,m,d[n+9],21,-343485551),m=safe_add(m,h),f=safe_add(f,t),r=safe_add(r,g),i=safe_add(i,e)}return Array(m,f,r,i)}function md5_cmn(d,_,m,f,r,i){return safe_add(bit_rol(safe_add(safe_add(_,d),safe_add(f,i)),r),m)}function md5_ff(d,_,m,f,r,i,n){return md5_cmn(_&m|~_&f,d,_,r,i,n)}function md5_gg(d,_,m,f,r,i,n){return md5_cmn(_&f|m&~f,d,_,r,i,n)}function md5_hh(d,_,m,f,r,i,n){return md5_cmn(_^m^f,d,_,r,i,n)}function md5_ii(d,_,m,f,r,i,n){return md5_cmn(m^(_|~f),d,_,r,i,n)}function safe_add(d,_){var m=(65535&d)+(65535&_);return(d>>16)+(_>>16)+(m>>16)<<16|65535&m}function bit_rol(d,_){return d<<_|d>>>32-_}
+
+  function humanFileSize(bytes, si=false, dp=1) {
+    const thresh = si ? 1000 : 1024;
+
+    if (Math.abs(bytes) < thresh) {
+      return bytes + ' B';
+    }
+
+    const units = si 
+      ? ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] 
+      : ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+    let u = -1;
+    const r = 10**dp;
+
+    do {
+      bytes /= thresh;
+      ++u;
+    } while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
+
+
+    return bytes.toFixed(dp) + ' ' + units[u];
+  }
+</script>
+<!-- :dapp html -->
