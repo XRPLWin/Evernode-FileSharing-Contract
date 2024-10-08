@@ -2,7 +2,7 @@ const fs = require('fs');
 const crypto = require('crypto')
 
 const htmlFile = 'template/app.html';
-const uploadDir = 'uploadedfiles';
+const uploadDir = '../uploadedfiles';
 
 export class filesharingdapp {
     sendOutput;     // This function must be wired up by the caller.
