@@ -2,7 +2,7 @@ const fs = require('fs');
 const crypto = require('crypto')
 
 const htmlFile = 'template/app.html';
-const uploadDir = '../uploadedfiles';
+const uploadDir = 'uploadedfiles';
 
 export class filesharingdapp {
     sendOutput;     // This function must be wired up by the caller.
@@ -78,7 +78,7 @@ export class filesharingdapp {
                 if (!fs.existsSync(dir+'/metadata.json')) {
                     fs.writeFileSync(dir+'/metadata.json',message.contents);
                 }
-                await this.sendRawOutput(user, {
+                await this.sendOutput(user, {
                     type: 'success',
                     error: 'Metadata file stored'
                 })
