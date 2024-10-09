@@ -140,45 +140,6 @@
         })
       }
 
-      /**
-       * For older browser which does not suport stream() 
-       */
-      async upload_legacy_deletethis() {
-        let totalChunks = Math.ceil(this.file.size / this.chunkSize);
-        this.metadata.totalchunks = totalChunks; //add protected property to metadata
-
-        //Upload metadata file with additional info
-        const contractMetadataInput = await this.client.submitContractInput( BSON.serialize({type: "upload-metadata", fileid: this.fileid, contents: JSON.stringify(this.metadata)}) );
-        const metadataStatus = await contractMetadataInput.submissionStatus;
-
-        if(metadataStatus.status != 'accepted') {
-          console.log('Failed to upload metadata file', err);
-          if(this.callbacks.onUploadFailed !== undefined)
-            this.callbacks.onUploadFailed();
-          return;
-        }
-        var chunkUploadPromises = [];
-        let start = 0;
-        let chunkno = 0;
-        while (start < this.file.size) {
-          chunkno++;
-          let chunk = this.file.slice(start, start + this.chunkSize);
-          start += this.chunkSize;
-          let chunkBuf = await chunk.arrayBuffer();
-          chunkUploadPromises.push(this.uploadSingleChunk(chunkBuf,chunkno,totalChunks))
-        }
-        //total chunks: chunkno
-
-        Promise.all(chunkUploadPromises).then(r => {
-          if(this.callbacks.onFileUploaded !== undefined)
-            this.callbacks.onFileUploaded();
-        }).catch(err => {
-          console.log('Failed to upload file', err);
-          if(this.callbacks.onUploadFailed !== undefined)
-            this.callbacks.onUploadFailed();
-        })
-      }
-
       async uploadSingleChunk(chunkHex,chunkno,totalchunks)
       {
         if(this.callbacks.onChunkUploading !== undefined)
@@ -203,11 +164,6 @@
       buf2hex(buffer) {
         return [...new Uint8Array(buffer)]
         .map(x => x.toString(16).padStart(2, '0'))
-        .join('');
-      }
-
-      uint8array2hex(uint8array) {
-        return [...uint8array].map(x => x.toString(16).padStart(2, '0'))
         .join('');
       }
 
