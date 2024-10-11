@@ -100,14 +100,14 @@ export class filesharingdapp {
                 }
 
                 //store file chunk
-                let chunkFilepath = dir+'/'+message.chunkno+'.chunk';
+                let chunkFilepath = dir+'/'+parseInt(message.chunkno)+'.chunk';
 
                 if (!fs.existsSync(chunkFilepath)) {
                     fs.writeFileSync(chunkFilepath,Buffer.from(message.chunk, "hex"));
                 }
                 await this.sendRawOutput(user, {
                     type: 'success',
-                    error: 'Chunk '+message.chunkno+' stored'
+                    error: 'Chunk '+parseInt(message.chunkno)+' stored'
                 })
             }
         }
