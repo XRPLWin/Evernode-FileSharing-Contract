@@ -58,6 +58,9 @@
       }
 
       async init_user_session() {
+        //wait for sodium to load
+        await sodium.ready;
+
         // This will generate new user context each app reload, you could store keypair to eg. cookie
         // and re-set userKeyPair and  to persist user session next app load.
         this.userKeyPair = await HotPocket.generateKeys(null);
