@@ -3,6 +3,8 @@ const crypto = require('crypto')
 
 const htmlFile = 'template/app.html';
 const uploadDir = '../uploadedfiles';
+//if you want to keep files in state (use consensus) use this setting:
+//const uploadDir = 'uploadedfiles';
 
 export class filesharingdapp {
     sendOutput;     // This function must be wired up by the caller.
