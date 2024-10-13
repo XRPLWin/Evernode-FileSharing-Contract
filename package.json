@@ -1,6 +1,12 @@
 {
     "name": "filesharingdapp",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "author": {
+        "name": "XRPLWin",
+        "email": "info@xrplwin.com",
+        "url": "https://xrplwin.com"
+    },
+    "funding": "https://xumm.app/detect/request:rWinEUKtN3BmYdDoGU6HZ7tTG54BeCAiz",
     "scripts": {
         "build": "npx ncc build src/contract.js -o dist",
         "build:prod": "npx ncc build src/contract.js --minify -o dist",
